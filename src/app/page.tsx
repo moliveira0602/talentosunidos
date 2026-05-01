@@ -240,9 +240,11 @@ export default function Home() {
                   src={partner.img} 
                   alt={partner.name} 
                   className={`max-w-full max-h-full object-contain transition-all duration-500 ${
-                    partner.large ? "scale-125 group-hover:scale-[1.4]" : "scale-100 group-hover:scale-110"
+                    partner.large ? "scale-125 lg:group-hover:scale-[1.4]" : "scale-100 lg:group-hover:scale-110"
                   } ${
-                    partner.invert ? "brightness-0 opacity-60 group-hover:opacity-100" : "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                    partner.invert 
+                      ? "brightness-0 opacity-100 lg:opacity-60 lg:group-hover:opacity-100" 
+                      : "grayscale-0 opacity-100 lg:grayscale lg:opacity-60 lg:group-hover:grayscale-0 lg:group-hover:opacity-100"
                   }`}
                 />
               )}
