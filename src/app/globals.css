@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors from Logo */
+  --primary: #002d4d;
+  --primary-active: #001f35;
+  --accent: #f7c325;
+  --accent-dark: #d9a81e;
+  --deep-blue: #002d4d;
+  --text-link: #004b7a;
+  --ink: #001f35;
+  --body: #4b5563;
+  --body-strong: #111827;
+  --muted: #9ca3af;
+  --muted-soft: #f3f4f6;
+  --hairline: #e5e7eb;
+  --canvas: #ffffff;
+
+  
+  /* Spacing */
+  --spacing-section: 120px;
+
+  /* Rounded */
+  --rounded-pill: 9999px;
+
+  /* Shadows */
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 64px;
+  }
+
+body {
+  @apply bg-[var(--canvas)] text-[var(--body)] antialiased;
+  font-family: var(--font-inter), sans-serif;
+}
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[var(--ink)] font-semibold tracking-tight;
+  }
+
+  .text-white h1, 
+  .text-white h2, 
+  .text-white h3, 
+  .text-white h4, 
+  .text-white h5, 
+  .text-white h6 {
+    @apply text-white;
+  }
+}
+
+
+@layer components {
+  .container {
+    @apply max-w-[1200px] mx-auto px-[var(--spacing-lg)] w-full;
+  }
+
+
+  .display-mega {
+    @apply text-5xl md:text-[64px] leading-[1.05] tracking-[-1.92px] font-semibold;
+  }
+
+  .display-lg {
+    @apply text-3xl md:text-[36px] leading-[1.15] tracking-[-1.08px] font-semibold;
+  }
+
+  /* Custom Blog Typography */
+  .blog-content {
+    @apply text-slate-600;
+  }
+  .blog-content h1 { @apply text-4xl font-bold text-[var(--deep-blue)] mb-8 tracking-tight; }
+  .blog-content h2 { @apply text-3xl font-bold text-[var(--deep-blue)] mt-16 mb-8 tracking-tight; }
+  .blog-content h3 { @apply text-2xl font-bold text-[var(--deep-blue)] mt-12 mb-6 tracking-tight; }
+  .blog-content p { @apply text-lg font-light leading-relaxed mb-8; }
+  .blog-content ul, .blog-content ol { @apply mb-8 ml-6 space-y-4; }
+  .blog-content li { @apply text-lg font-light leading-relaxed; }
+  .blog-content blockquote {
+    @apply border-l-4 border-[var(--accent)] pl-8 py-8 italic text-2xl text-[var(--deep-blue)] font-light my-16 bg-slate-50 rounded-r-[40px] shadow-sm;
+  }
+  .blog-content img {
+    @apply w-full h-auto rounded-[40px] my-16 shadow-2xl shadow-slate-200;
+  }
+  .blog-content strong { @apply font-bold text-[var(--deep-blue)]; }
+  .blog-content a { @apply text-[var(--accent-dark)] underline decoration-[var(--accent)] decoration-2 underline-offset-4 hover:text-[var(--deep-blue)] transition-colors; }
+}
+
+
+
+/* Hide Next.js Dev Overlay & Indicators Permanently */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-dialog],
+[data-nextjs-on-demand-entries-utils],
+#__next-build-watcher,
+#nextjs-dev-overlay-card,
+[id^="__next-dialog-"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
