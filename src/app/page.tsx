@@ -139,7 +139,7 @@ export default function Home() {
           ))}
         </div>
         
-        <div className="bg-[var(--deep-blue)] rounded-[56px] p-12 md:p-24 text-white overflow-hidden relative border border-white/5 shadow-3xl shadow-[var(--deep-blue)]/40">
+        <div className="bg-[var(--deep-blue)] rounded-[40px] sm:rounded-[56px] p-8 sm:p-16 md:p-24 text-white overflow-hidden relative border border-white/5 shadow-3xl shadow-[var(--deep-blue)]/40">
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,var(--accent)_0%,transparent_50%)] opacity-[0.03]" />
           <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white opacity-[0.02] blur-3xl rounded-full" />

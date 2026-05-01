@@ -84,6 +84,12 @@ const BLOG_POSTS = [
   }
 ];
 
+export async function generateStaticParams() {
+  return BLOG_POSTS.map((post) => ({
+    id: post.id.toString(),
+  }));
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const post = BLOG_POSTS.find(p => p.id === parseInt(id));

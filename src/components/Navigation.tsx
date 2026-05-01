@@ -1,11 +1,13 @@
 "use client";
-
+ 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
+import { Menu, X } from "lucide-react";
+ 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+ 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -13,53 +15,126 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+ 
+  const navLinks = [
+    { name: "MISSÃO", href: "#missao" },
+    { name: "OBJETIVOS", href: "#objetivos" },
+    { name: "PARCEIROS", href: "#parceiros" },
+    { name: "BLOG", href: "/#blog" },
+    { name: "ASSOCIE-SE", href: "/#cta-associar" },
+    { name: "CONTACTOS", href: "#contactos" },
+  ];
+ 
   return (
-    <header className={`fixed top-0 left-0 w-full h-[64px] z-50 flex items-center transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 w-full h-[72px] z-[100] flex items-center transition-all duration-300 ${
       scrolled 
-        ? "bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm" 
+        ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm" 
         : "bg-transparent border-b border-transparent"
     }`}>
       <div className="container mx-auto max-w-7xl px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="size-11 overflow-hidden rounded-full shadow-lg shrink-0">
+        <Link href="/" className="flex items-center gap-3 group z-[110]">
+          <div className="size-10 overflow-hidden rounded-full shadow-lg shrink-0">
             <img 
               src="/images/logo.png" 
               alt="TU" 
-              className="h-11 w-auto max-w-none object-cover object-left" 
+              className="h-10 w-auto max-w-none object-cover object-left" 
             />
           </div>
           <div className={`flex flex-col leading-[1.1] font-bold transition-colors duration-300 ${
-            scrolled ? "text-[var(--deep-blue)]" : "text-white"
+            scrolled || mobileMenuOpen ? "text-[var(--deep-blue)]" : "text-white"
           }`}>
-            <span className="text-[7px] tracking-[0.25em] opacity-70 mb-0.5">ASSOCIAÇÃO</span>
-            <span className="text-[17px] tracking-tighter uppercase font-black">Talentos</span>
-            <span className="text-[17px] tracking-tighter uppercase font-black">Unidos</span>
+            <span className="text-[6px] tracking-[0.25em] opacity-70 mb-0.5">ASSOCIAÇÃO</span>
+            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black">Talentos</span>
+            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black">Unidos</span>
           </div>
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+ 
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-8">
           <ul className="flex items-center gap-6">
-            <li><Link href="#missao" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>MISSÃO</Link></li>
-            <li><Link href="#objetivos" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>OBJETIVOS</Link></li>
-            <li><Link href="#parceiros" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>PARCEIROS</Link></li>
-            <li><Link href="/#blog" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>BLOG</Link></li>
-            <li><Link href="/#cta-associar" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>ASSOCIE-SE</Link></li>
-            <li><Link href="#contactos" className={`text-sm font-medium transition-colors ${scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/80 hover:text-white"}`}>CONTACTOS</Link></li>
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link 
+                  href={link.href} 
+                  className={`text-[11px] font-bold tracking-widest transition-colors ${
+                    scrolled ? "text-slate-600 hover:text-[var(--accent-dark)]" : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
-        </nav>
-        <div className="flex items-center gap-4">
-          <Link href="#contactos" className={`text-sm font-black px-6 py-3 rounded-full transition-all uppercase tracking-wider ${
-            scrolled 
-              ? "bg-[var(--deep-blue)] text-white hover:bg-black" 
-              : "bg-[var(--accent)] text-[var(--deep-blue)] hover:bg-white"
-          }`}>
+          <Link 
+            href="#contactos" 
+            className={`text-[11px] font-black px-6 py-2.5 rounded-full transition-all uppercase tracking-widest ${
+              scrolled 
+                ? "bg-[var(--deep-blue)] text-white hover:bg-black" 
+                : "bg-[var(--accent)] text-[var(--deep-blue)] hover:bg-white"
+            }`}
+          >
             Fale Connosco
           </Link>
+        </nav>
+ 
+        {/* Mobile Controls */}
+        <div className="flex items-center gap-4 lg:hidden z-[110]">
+          <Link 
+            href="#contactos" 
+            className={`text-[10px] font-black px-4 py-2 rounded-full transition-all uppercase tracking-widest ${
+              scrolled || mobileMenuOpen
+                ? "bg-[var(--deep-blue)] text-white" 
+                : "bg-[var(--accent)] text-[var(--deep-blue)]"
+            }`}
+          >
+            Fale Connosco
+          </Link>
+          <button 
+            onClick={toggleMobileMenu}
+            className={`p-2 transition-colors ${
+              scrolled || mobileMenuOpen ? "text-[var(--deep-blue)]" : "text-white"
+            }`}
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+ 
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-white z-[105] transition-all duration-500 lg:hidden ${
+        mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+      }`}>
+        <div className="flex flex-col h-full pt-32 pb-10 px-8">
+          <nav className="flex-1">
+            <ul className="space-y-6">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-4xl font-bold text-[var(--deep-blue)] tracking-tighter hover:text-[var(--accent-dark)] transition-colors inline-block"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          
+          <div className="pt-10 border-t border-slate-100">
+            <p className="text-sm text-slate-400 mb-6 font-medium tracking-widest uppercase">Redes Sociais</p>
+            <div className="flex gap-6">
+              <a href="https://www.facebook.com/associacaotalentosunidos/" className="text-[var(--deep-blue)] font-bold">FB</a>
+              <a href="https://www.instagram.com/associacao_talentos_unidos" className="text-[var(--deep-blue)] font-bold">IG</a>
+            </div>
+          </div>
         </div>
       </div>
     </header>
   );
 };
-
+ 
 export default Navigation;
-
