@@ -362,26 +362,26 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="space-y-10">
-                <div className="flex gap-6 items-center group">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)]">
-                    <Mail className="size-6 text-[var(--accent)] group-hover:text-[var(--deep-blue)] transition-colors" />
+              <div className="space-y-8 sm:space-y-10">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)]">
+                    <Mail className="size-5 sm:size-6 text-[var(--accent)] group-hover:text-[var(--deep-blue)] transition-colors" />
                   </div>
-                  <div>
-                    <span className="block text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Contacto Direto</span>
-                    <p className="text-xl font-medium">info@talentosunidos.com</p>
-                    <p className="text-sm text-white/60">289 040 092 | 934 436 515</p>
+                  <div className="min-w-0">
+                    <span className="block text-[8px] sm:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Contacto Direto</span>
+                    <p className="text-lg sm:text-xl font-medium break-all sm:break-normal">info@talentosunidos.com</p>
+                    <p className="text-xs sm:text-sm text-white/60">289 040 092 | 934 436 515</p>
                   </div>
                 </div>
                 
-                <div className="flex gap-6 items-center group">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)]">
-                    <MapPin className="size-6 text-[var(--accent)] group-hover:text-[var(--deep-blue)] transition-colors" />
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)]">
+                    <MapPin className="size-5 sm:size-6 text-[var(--accent)] group-hover:text-[var(--deep-blue)] transition-colors" />
                   </div>
                   <div>
-                    <span className="block text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Sede Social</span>
-                    <p className="text-xl font-medium leading-tight">Rua dos Torneiros s/nº</p>
-                    <p className="text-sm text-white/60">8100-664 Loulé, Algarve</p>
+                    <span className="block text-[8px] sm:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Sede Social</span>
+                    <p className="text-lg sm:text-xl font-medium leading-tight">Rua dos Torneiros s/nº</p>
+                    <p className="text-xs sm:text-sm text-white/60">8100-664 Loulé, Algarve</p>
                   </div>
                 </div>
               </div>
