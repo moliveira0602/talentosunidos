@@ -47,7 +47,7 @@ export default function Hero() {
                 ))}
               </div>
               <div className="flex flex-col font-normal text-sm">
-                <span className="text-base sm:text-lg">15,000+</span>
+                <span className="text-base sm:text-lg">5000</span>
                 <span className="">Pessoas Impactadas</span>
               </div>
             </div>
