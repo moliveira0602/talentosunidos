@@ -54,14 +54,14 @@ export default function Hero() {
             <div className="flex w-fit">
               <Link 
                 href="#contactos"
-                className="group flex items-center gap-3 transition-transform active:scale-95"
+                className="group flex items-center transition-transform active:scale-95"
               >
-                <div className="flex h-[60px] items-center justify-center rounded-full bg-[var(--accent)] px-10 text-[var(--deep-blue)] font-bold duration-500 ease-in-out group-hover:bg-white uppercase tracking-widest text-sm shadow-xl shadow-black/10">
-                  Fale Connosco
-                </div>
-                <div className="relative flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full bg-[var(--accent)] text-[var(--deep-blue)] duration-500 ease-in-out group-hover:bg-white shadow-xl shadow-black/10">
-                  <ArrowUpRight className="absolute h-6 w-6 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-[150%] group-hover:-translate-y-[150%]" />
-                  <ArrowUpRight className="absolute h-6 w-6 top-1/2 left-1/2 -translate-x-[150%] translate-y-[150%] transition-all duration-500 ease-in-out group-hover:-translate-x-1/2 group-hover:-translate-y-1/2" />
+                <div className="flex h-[60px] items-center rounded-full bg-[var(--accent)] pl-10 pr-4 text-[var(--deep-blue)] font-bold duration-500 ease-in-out group-hover:bg-white shadow-xl shadow-black/10">
+                  <span className="uppercase tracking-widest text-sm mr-6">Quero Fazer Parte</span>
+                  <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-[var(--deep-blue)]/10 text-[var(--deep-blue)] transition-colors duration-500 group-hover:bg-[var(--deep-blue)] group-hover:text-white">
+                    <ArrowUpRight className="absolute h-5 w-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-[150%] group-hover:-translate-y-[150%]" />
+                    <ArrowUpRight className="absolute h-5 w-5 top-1/2 left-1/2 -translate-x-[150%] translate-y-[150%] transition-all duration-500 ease-in-out group-hover:-translate-x-1/2 group-hover:-translate-y-1/2" />
+                  </div>
                 </div>
               </Link>
             </div>
