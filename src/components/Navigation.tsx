@@ -16,6 +16,15 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
  
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileMenuOpen]);
+ 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
  
   const navLinks = [
@@ -28,13 +37,13 @@ const Navigation = () => {
   ];
  
   return (
-    <header className={`fixed top-0 left-0 w-full h-[72px] z-[100] flex items-center transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 w-full h-[72px] z-[1000] flex items-center transition-all duration-300 ${
       scrolled 
         ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm" 
         : "bg-transparent border-b border-transparent"
     }`}>
-      <div className="container mx-auto max-w-7xl px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 group z-[110]">
+      <div className="container mx-auto max-w-7xl px-6 flex justify-between items-center relative z-[1002]">
+        <Link href="/" className="flex items-center gap-3 group">
           <div className="size-10 overflow-hidden rounded-full shadow-lg shrink-0">
             <img 
               src="/images/logo.png" 
@@ -80,7 +89,7 @@ const Navigation = () => {
         </nav>
  
         {/* Mobile Controls */}
-        <div className="flex items-center gap-4 lg:hidden z-[110]">
+        <div className="flex items-center gap-4 lg:hidden">
           <Link 
             href="#contactos" 
             className={`text-[10px] font-black px-4 py-2 rounded-full transition-all uppercase tracking-widest ${
@@ -104,11 +113,11 @@ const Navigation = () => {
       </div>
  
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-white z-[105] transition-all duration-500 lg:hidden ${
+      <div className={`fixed inset-0 bg-white z-[1001] transition-all duration-500 lg:hidden ${
         mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       }`}>
         <div className="flex flex-col h-full pt-32 pb-10 px-8">
-          <nav className="flex-1">
+          <nav className="flex-1 overflow-y-auto">
             <ul className="space-y-6">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -124,7 +133,7 @@ const Navigation = () => {
             </ul>
           </nav>
           
-          <div className="pt-10 border-t border-slate-100">
+          <div className="pt-10 border-t border-slate-100 mt-auto">
             <p className="text-[10px] text-slate-400 mb-6 font-bold tracking-[0.2em] uppercase">Siga-nos nas Redes Sociais</p>
             <div className="flex gap-4">
               <a 
