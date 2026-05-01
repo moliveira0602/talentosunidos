@@ -113,18 +113,21 @@ const Navigation = () => {
       </div>
  
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-white z-[1001] transition-all duration-500 lg:hidden ${
-        mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+      <div className={`fixed top-0 left-0 w-full h-[100dvh] bg-white z-[1001] transition-transform duration-500 lg:hidden flex flex-col ${
+        mobileMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}>
-        <div className="flex flex-col h-full pt-32 pb-10 px-8">
-          <nav className="flex-1 overflow-y-auto">
-            <ul className="space-y-6">
+        {/* Padding for the fixed header height */}
+        <div className="h-[72px] shrink-0" />
+        
+        <div className="flex-1 overflow-y-auto px-8 py-12 flex flex-col">
+          <nav className="mb-12">
+            <ul className="space-y-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-4xl font-bold text-[var(--deep-blue)] tracking-tighter hover:text-[var(--accent-dark)] transition-colors inline-block"
+                    className="text-4xl font-bold text-[var(--deep-blue)] tracking-tighter hover:text-[var(--accent-dark)] transition-colors block"
                   >
                     {link.name}
                   </Link>
@@ -133,7 +136,7 @@ const Navigation = () => {
             </ul>
           </nav>
           
-          <div className="pt-10 border-t border-slate-100 mt-auto">
+          <div className="mt-auto pt-10 border-t border-slate-100">
             <p className="text-[10px] text-slate-400 mb-6 font-bold tracking-[0.2em] uppercase">Siga-nos nas Redes Sociais</p>
             <div className="flex gap-4">
               <a 
