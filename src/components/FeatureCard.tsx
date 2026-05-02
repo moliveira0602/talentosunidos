@@ -4,10 +4,12 @@ interface FeatureCardProps {
   description: string;
   icon?: React.ReactNode;
   dark?: boolean;
+  link?: string;
+  linkText?: string;
 }
 
-const FeatureCard = ({ title, description, icon, dark }: FeatureCardProps) => {
-  return (
+const FeatureCard = ({ title, description, icon, dark, link, linkText = "Saiba mais" }: FeatureCardProps) => {
+  const content = (
     <div className={`group p-10 rounded-3xl border transition-all duration-500 h-full flex flex-col reveal ${
       dark 
         ? "bg-[var(--deep-blue)] border-[var(--deep-blue)] text-white shadow-2xl" 
@@ -27,10 +29,20 @@ const FeatureCard = ({ title, description, icon, dark }: FeatureCardProps) => {
       <div className={`mt-auto pt-8 flex items-center gap-2 text-sm font-semibold transition-all opacity-0 group-hover:opacity-100 ${
         dark ? "text-[var(--accent)]" : "text-[var(--deep-blue)]"
       }`}>
-        Saiba mais <ArrowUpRight className="size-4" />
+        {linkText} <ArrowUpRight className="size-4" />
       </div>
     </div>
   );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 };
 
 

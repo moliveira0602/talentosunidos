@@ -90,6 +90,8 @@ export default function Home() {
             icon={<Target className="size-8" />}
             title="Foco Jovem"
             description="Apoio estratégico e orientação personalizada para a inserção de jovens no mercado de trabalho algarvio."
+            link="https://www.youtube.com/playlist?list=PLLGvgynixqIzAziIwhbohVYY5kXwqPrWQ"
+            linkText="Partilha de Experiências"
           />
           <FeatureCard 
             icon={<Leaf className="size-8" />}
@@ -101,15 +103,15 @@ export default function Home() {
 
       <Section id="direcao" label="Governança" title="Compromisso com a Transparência e Excelência.">
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-[var(--deep-blue)] mb-2">Conselho de Administração</h3>
+          <h3 className="text-2xl font-bold text-[var(--deep-blue)] mb-2">Direção</h3>
           <p className="text-slate-500 font-light">Liderança dedicada à estratégia e sustentabilidade da associação.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           {[
-            { name: "SELMA VALLE FERREIRA CAZES", role: "Presidente" },
-            { name: "JULIENE NINOSKA DA PONTE RODRIGUES", role: "Vice-Presidente" },
-            { name: "MARIANA INÁCIO RODRIGUES", role: "Secretária Tesoureira" }
+            { name: "Selma Ferreira", role: "Presidente" },
+            { name: "Juliene Rodrigues", role: "Vice-Presidente" },
+            { name: "Mariana Rodrigues", role: "Secretária Tesoureira" }
           ].map((person, i) => (
             <div key={i} className="group relative p-10 rounded-[40px] bg-white border border-slate-100 hover:border-[var(--accent)] transition-all duration-700 shadow-sm hover:shadow-2xl hover:shadow-[var(--deep-blue)]/10 hover:-translate-y-2">
               <div className="relative z-10">
@@ -173,9 +175,9 @@ export default function Home() {
                 </div>
                 <div className="space-y-12">
                   {[
-                    { name: "VÍTOR MANUEL DOS SANTOS REIS", role: "Presidente" },
-                    { name: "BETÂNIA CEPAS", role: "1ª Secretária" },
-                    { name: "VICTOR CAZES", role: "2º Secretário" }
+                    { name: "Vítor Reis", role: "Presidente" },
+                    { name: "Betânia Cepas", role: "1ª Secretária" },
+                    { name: "Victor Cazes", role: "2º Secretário" }
                   ].map((person, i) => (
                     <div key={i} className="group cursor-default border-b border-white/5 pb-6 transition-colors hover:border-[var(--accent)]/30">
                       <p className="text-[8px] text-white/30 font-bold uppercase tracking-[0.3em] mb-2">{person.role}</p>
@@ -193,9 +195,9 @@ export default function Home() {
                 </div>
                 <div className="space-y-12">
                   {[
-                    { name: "MANUELA ROBINSON", role: "Presidente" },
-                    { name: "CATHERINE ELIZABETH PUGH ALMEIDA", role: "1º Vogal" },
-                    { name: "RONALDO SCHUTZ", role: "2º Vogal" }
+                    { name: "Manuela Robinson", role: "Presidente" },
+                    { name: "Catherine Almeida", role: "1º Vogal" },
+                    { name: "Ronaldo Schutz", role: "2º Vogal" }
                   ].map((person, i) => (
                     <div key={i} className="group cursor-default border-b border-white/5 pb-6 transition-colors hover:border-[var(--accent)]/30">
                       <p className="text-[8px] text-white/30 font-bold uppercase tracking-[0.3em] mb-2">{person.role}</p>
@@ -216,19 +218,36 @@ export default function Home() {
       <Section id="parceiros" light label="Rede de Impacto" title="Parceiros que acreditam no talento algarvio.">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
           {[
-            { name: "Ver o Verso", img: "/images/partners/logo_veroverso.png" },
-            { name: "Green Valley", img: "/images/partners/logo_greenvalley.png", invert: true },
-            { name: "DOP", img: "/images/partners/logo_dop.png" },
-            { name: "Sigues", img: "/images/partners/logo_sigues.png" },
-            { name: "Clube Mulheres de Negócios", img: "/images/partners/logo_mulheresnegocios.png" },
+            // Institucionais e Públicos
+            { name: "UAlg", img: "/images/partners/logo_ualg.png" },
+            { name: "Quarteira", img: "/images/partners/logo_quarteira.png" },
+            { name: "S. Sebastião", img: "/images/partners/logo_saosebastiao.png" },
+            { name: "S. Clemente", img: "/images/partners/logo_saoclemente.png" },
+            
+            // Associações e Reconhecimento
+            { name: "Rotary", img: "/images/partners/logo_rotary.png" },
+            { name: "ConCid-Faro", img: "/images/partners/logo_concidfaro.png" },
             { name: "Associação Esperança e Paz", img: "/images/partners/logo_esperancaepaz.png" },
             { name: "Banco de Tempo Quarteira", img: "/images/partners/logo_bancodetempo.png" },
-            { name: "Rotary", img: "/images/partners/logo_rotary.png", large: true },
             { name: "PROLE", img: "/images/partners/logo_prole.png" },
             { name: "SPEAK", img: "/images/partners/logo_speak.png" },
-            { name: "UAlg", img: "/images/partners/logo_ualg.png" },
-            { name: "Algarve Families in Need", isText: true },
+            
+            // Media e Parceiros Estratégicos
+            { name: "PlanetAlgarve", img: "/images/partners/logo_planetalgarve.png" },
+            { name: "Loulé Aqui e Agora", img: "/images/partners/logo_loule_aquieagora.png" },
+            { name: "Etos", img: "/images/partners/logo_etos.png" },
             { name: "Certideal", img: "/images/partners/logo_certideal.png" },
+            
+            // Empresas e Outros
+            { name: "DOP", img: "/images/partners/logo_dop.png" },
+            { name: "Sigues", img: "/images/partners/logo_sigues.png" },
+            { name: "Green Valley", img: "/images/partners/logo_greenvalley.png", invert: true },
+            { name: "Ver o Verso", img: "/images/partners/logo_veroverso.png" },
+            { name: "M.E. time", img: "/images/partners/logo_metime.png" },
+            
+            // Parceiros Individuais/Texto (final para fluidez visual)
+            { name: "Algarve Families in Need", isText: true },
+            { name: "Vânia Pipard", isText: true },
           ].map((partner, i) => (
             <div key={i} className="h-32 rounded-[32px] flex items-center justify-center p-6 transition-all duration-500 group shadow-sm hover:shadow-xl hover:-translate-y-1 bg-white border border-slate-100">
               {partner.isText ? (
@@ -239,12 +258,10 @@ export default function Home() {
                 <img 
                   src={partner.img} 
                   alt={partner.name} 
-                  className={`max-w-full max-h-full object-contain transition-all duration-500 ${
-                    partner.large ? "scale-125 lg:group-hover:scale-[1.4]" : "scale-100 lg:group-hover:scale-110"
-                  } ${
+                  className={`max-w-full max-h-full object-contain transition-all duration-500 group-hover:scale-110 ${
                     partner.invert 
-                      ? "brightness-0 opacity-100 lg:opacity-60 lg:group-hover:opacity-100" 
-                      : "grayscale-0 opacity-100 lg:grayscale lg:opacity-60 lg:group-hover:grayscale-0 lg:group-hover:opacity-100"
+                      ? "brightness-0 opacity-40 group-hover:opacity-100" 
+                      : "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100"
                   }`}
                 />
               )}
@@ -372,7 +389,7 @@ export default function Home() {
                   <div className="min-w-0">
                     <span className="block text-[8px] sm:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Contacto Direto</span>
                     <p className="text-lg sm:text-xl font-medium break-all sm:break-normal">info@talentosunidos.com</p>
-                    <p className="text-xs sm:text-sm text-white/60">289 040 092 | 934 436 515</p>
+                    <p className="text-xs sm:text-sm text-white/60">934 436 515 (tarifa normal para rede nacional)</p>
                   </div>
                 </div>
                 
@@ -383,7 +400,7 @@ export default function Home() {
                   <div>
                     <span className="block text-[8px] sm:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-1">Sede Social</span>
                     <p className="text-lg sm:text-xl font-medium leading-tight">Rua dos Torneiros s/nº</p>
-                    <p className="text-xs sm:text-sm text-white/60">8100-664 Loulé, Algarve</p>
+                    <p className="text-xs sm:text-sm text-white/60">8100-607 Loulé, Algarve</p>
                   </div>
                 </div>
               </div>

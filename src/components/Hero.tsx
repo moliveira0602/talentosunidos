@@ -48,7 +48,7 @@ export default function Hero() {
                 ))}
               </div>
               <div className="flex flex-col font-medium text-sm sm:text-base">
-                <span className="text-xl sm:text-2xl font-bold text-[var(--accent)]">+5000</span>
+                <span className="text-xl sm:text-2xl font-bold text-[var(--accent)]">2500</span>
                 <span className="text-white/60 uppercase tracking-widest text-[10px]">Pessoas Impactadas</span>
               </div>
             </div>
