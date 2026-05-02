@@ -7,8 +7,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <div className="flex items-center gap-3.5">
-              <div className="size-11 overflow-hidden rounded-full shadow-md shrink-0">
-                <img src="/images/logo.png" alt="TU" className="h-11 w-auto max-w-none object-cover object-left" />
+              <div className="size-12 shrink-0 flex items-center justify-center">
+                <img src="/images/logo_icon.png" alt="Talentos Unidos" className="h-full w-auto object-contain" />
               </div>
               <div className="flex flex-col leading-[1.1] font-bold text-[var(--deep-blue)] uppercase">
                 <span className="text-[7px] tracking-[0.25em] opacity-70 mb-0.5">ASSOCIAÇÃO</span>

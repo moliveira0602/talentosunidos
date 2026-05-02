@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Associação Talentos Unidos: Incentivando a formação, intercâmbio de ideias e integração social no Algarve. Juntos por uma missão de desenvolver talentos.",
 };
 
+import ScrollToTop from "@/components/ScrollToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,6 +28,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );

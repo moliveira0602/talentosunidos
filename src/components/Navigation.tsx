@@ -43,20 +43,29 @@ const Navigation = () => {
         : "bg-transparent border-b border-transparent"
     }`}>
       <div className="container mx-auto max-w-7xl px-6 flex justify-between items-center relative z-[1002]">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="size-10 overflow-hidden rounded-full shadow-lg shrink-0">
+        <Link 
+          href="/" 
+          className="flex items-center gap-3 group transition-transform active:scale-95"
+          onClick={(e) => {
+            if (window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
+          <div className="h-12 w-12 shrink-0 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
             <img 
-              src="/images/logo.png" 
-              alt="TU" 
-              className="h-10 w-auto max-w-none object-cover object-left" 
+              src="/images/logo_icon.png" 
+              alt="Talentos Unidos" 
+              className="h-full w-auto object-contain" 
             />
           </div>
           <div className={`flex flex-col leading-[1.1] font-bold transition-colors duration-300 ${
             scrolled || mobileMenuOpen ? "text-[var(--deep-blue)]" : "text-white"
           }`}>
             <span className="text-[6px] tracking-[0.25em] opacity-70 mb-0.5">ASSOCIAÇÃO</span>
-            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black">Talentos</span>
-            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black">Unidos</span>
+            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black group-hover:text-[var(--accent)] transition-colors">Talentos</span>
+            <span className="text-[14px] sm:text-[16px] tracking-tighter uppercase font-black group-hover:text-[var(--accent)] transition-colors">Unidos</span>
           </div>
         </Link>
  

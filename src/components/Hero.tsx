@@ -6,15 +6,36 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/demos/ui/avatar";
 import { Button } from "@/components/ui/button";
 
+import { useState, useEffect } from "react";
+
 export default function Hero() {
+  const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollPos(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative flex h-screen w-full items-end justify-center pt-16">
+    <section className="relative flex h-screen w-full items-end justify-center pt-16 overflow-hidden">
       <div
         className="absolute inset-0 h-full bg-cover"
         style={{
           backgroundImage:
             "url(/images/hero-bg.png)",
           backgroundPosition: "center",
+          transform: `scale(${1 + scrollPos * 0.0003})`,
+          willChange: "transform",
         }}
       >
         <div className="absolute inset-0 bg-black/50 backdrop-brightness-[0.8]" />
